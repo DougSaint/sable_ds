@@ -1,0 +1,51 @@
+import { DialogDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Dialog
+
+Confirmação ou formulário curto, por cima da página.
+
+## Quando usar
+
+Arquivar, apagar, editar um registro. Para navegar, use a própria página.
+
+<DoDont
+  do="Um título. Uma ação primária. Esc e botão Fechar."
+  dont="Dialog em cima de dialog, ou fechar só clicando fora."
+/>
+
+## Anatomia
+
+Overlay, painel, fechar no canto, ações no rodapé.
+
+<DialogDemo />
+
+<Snippet>{`import {
+  Dialog, DialogTrigger, DialogContent,
+  DialogHeader, DialogTitle, DialogFooter, Button,
+} from "@sable/ui"
+
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Arquivar</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Arquivar pedido</DialogTitle>
+    </DialogHeader>
+    <DialogFooter>
+      <Button variant="secondary">Cancelar</Button>
+      <Button>Confirmar</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Fica preso no dialog" },
+    { key: "Esc", action: "Fecha e devolve o foco" },
+    { key: "Enter", action: "Ativa o controle focado" },
+  ]}
+/>

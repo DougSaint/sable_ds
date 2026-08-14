@@ -1,0 +1,35 @@
+import { ButtonDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Button
+
+A ação da tela. Um primary por grupo.
+
+## Quando usar
+
+Salvar, confirmar, enviar. Secondary para cancelar. Destructive só quando algo some de verdade.
+
+<DoDont
+  do="Um primary por região. Verbo no rótulo: Salvar, Arquivar."
+  dont="Dois primary juntos, ou um ícone sem nome acessível."
+/>
+
+## Anatomia
+
+A altura segue a densidade da página. Foco com ring terracotta.
+
+<ButtonDemo />
+
+<Snippet>{`import { Button } from "@sable/ui"
+
+<Button>Salvar</Button>
+<Button variant="secondary">Cancelar</Button>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Foco visível no botão" },
+    { key: "Enter / Space", action: "Dispara a ação" },
+  ]}
+/>

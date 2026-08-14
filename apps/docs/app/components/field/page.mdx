@@ -1,0 +1,36 @@
+import { FieldDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Field
+
+Label, campo e mensagem. Se houver erro, a dica some.
+
+## Quando usar
+
+Qualquer controle de formulário visível. O placeholder não substitui o label.
+
+<DoDont
+  do="Label ligado ao campo. Erro no próprio Field."
+  dont="Hint e error juntos, ou validar só com toast."
+/>
+
+## Anatomia
+
+Label em cima, controle no meio, mensagem embaixo.
+
+<FieldDemo />
+
+<Snippet>{`import { Field, Input } from "@sable/ui"
+
+<Field label="E-mail" htmlFor="email" error={msg}>
+  <Input id="email" type="email" aria-invalid={Boolean(msg)} />
+</Field>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Entra no controle" },
+    { key: "Leitor de tela", action: "Lê o erro com role=alert" },
+  ]}
+/>

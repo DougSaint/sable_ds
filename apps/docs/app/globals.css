@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx,mdx}";
+@import "@sable/tokens/theme.css";

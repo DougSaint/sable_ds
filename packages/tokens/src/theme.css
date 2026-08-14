@@ -1,0 +1,129 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/*
+  Sable tokens.
+  Terracotta is fill / border / accent — never body text on dark (contrast).
+*/
+
+:root,
+[data-theme="dark"] {
+  --sable-background: #0e0c0a;
+  --sable-foreground: #f4efe8;
+  --sable-surface: #161310;
+  --sable-surface-2: #1e1a16;
+  --sable-border: #2a241e;
+  --sable-muted: #9a8f84;
+  --sable-primary: #e07a3d;
+  --sable-primary-foreground: #1a0f08;
+  --sable-ring: #e07a3d;
+  --sable-success: #3d9a6a;
+  --sable-success-foreground: #e8f6ee;
+  --sable-warning: #d4a017;
+  --sable-warning-foreground: #1a1508;
+  --sable-danger: #d64545;
+  --sable-danger-foreground: #fcecec;
+  --sable-info: #4a8fbf;
+  --sable-info-foreground: #e8f3f8;
+  --sable-overlay: rgb(14 12 10 / 0.72);
+  --sable-shadow:
+    0 1px 0 rgb(224 122 61 / 0.06), 0 8px 24px rgb(14 12 10 / 0.5);
+}
+
+[data-theme="light"] {
+  --sable-background: #f7f3ee;
+  --sable-foreground: #1a1612;
+  --sable-surface: #ffffff;
+  --sable-surface-2: #efeae4;
+  --sable-border: #ddd4c8;
+  --sable-muted: #6b6158;
+  --sable-primary: #c45e24;
+  --sable-primary-foreground: #fff8f3;
+  --sable-ring: #c45e24;
+  --sable-success: #2d7a52;
+  --sable-success-foreground: #f3fbf6;
+  --sable-warning: #b8860b;
+  --sable-warning-foreground: #1a1508;
+  --sable-danger: #c0392b;
+  --sable-danger-foreground: #fff5f5;
+  --sable-info: #2e6f99;
+  --sable-info-foreground: #f0f7fb;
+  --sable-overlay: rgb(26 22 18 / 0.48);
+  --sable-shadow:
+    0 1px 0 rgb(196 94 36 / 0.08), 0 8px 24px rgb(26 22 18 / 0.08);
+}
+
+:root,
+[data-density="comfortable"] {
+  --control-h: 40px;
+  --control-px: 16px;
+  --control-text: 0.875rem;
+  --control-gap: 8px;
+}
+
+[data-density="compact"] {
+  --control-h: 32px;
+  --control-px: 12px;
+  --control-text: 0.8125rem;
+  --control-gap: 6px;
+}
+
+@theme inline {
+  --color-background: var(--sable-background);
+  --color-foreground: var(--sable-foreground);
+  --color-surface: var(--sable-surface);
+  --color-surface-2: var(--sable-surface-2);
+  --color-border: var(--sable-border);
+  --color-muted: var(--sable-muted);
+  --color-primary: var(--sable-primary);
+  --color-primary-foreground: var(--sable-primary-foreground);
+  --color-ring: var(--sable-ring);
+  --color-success: var(--sable-success);
+  --color-success-foreground: var(--sable-success-foreground);
+  --color-warning: var(--sable-warning);
+  --color-warning-foreground: var(--sable-warning-foreground);
+  --color-danger: var(--sable-danger);
+  --color-danger-foreground: var(--sable-danger-foreground);
+  --color-info: var(--sable-info);
+  --color-info-foreground: var(--sable-info-foreground);
+  --color-overlay: var(--sable-overlay);
+  --color-card: var(--sable-surface);
+  --color-popover: var(--sable-surface);
+  --color-accent: var(--sable-surface-2);
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --radius-control: 4px;
+  --radius-card: 8px;
+
+  --shadow-card: var(--sable-shadow);
+
+  --duration-fast: 120ms;
+  --duration-normal: 180ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  background: var(--sable-background);
+  color: var(--sable-foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" 0, "kern" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--sable-ring);
+  outline-offset: 2px;
+}

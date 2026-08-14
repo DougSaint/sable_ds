@@ -1,0 +1,37 @@
+{
+  "name": "@sable/docs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "predev": "node ../../scripts/copy-storybook.mjs",
+    "dev": "next dev --port 3000",
+    "prebuild": "node ../../scripts/copy-storybook.mjs",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node -e \"process.exit(0)\""
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.0.0",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.3.0",
+    "@sable/tokens": "workspace:*",
+    "@sable/ui": "workspace:*",
+    "next": "^15.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.56.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@sable/storybook": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.0"
+  }
+}
