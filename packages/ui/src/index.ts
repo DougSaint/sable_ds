@@ -28,6 +28,7 @@ export { Separator } from "./components/separator";
 export { Checkbox } from "./components/checkbox";
 export { RadioGroup, RadioGroupItem } from "./components/radio-group";
 export { Switch } from "./components/switch";
+export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group";
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/tabs";
 export {
   Tooltip,

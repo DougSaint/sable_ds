@@ -44,6 +44,8 @@ import {
   SelectTrigger,
   SelectValue,
   Switch,
+  ToggleGroup,
+  ToggleGroupItem,
   Table,
   TableBody,
   TableCell,
@@ -310,6 +312,17 @@ export function SwitchDemo() {
         Notificações
       </label>
       <Switch disabled />
+    </Example>
+  );
+}
+
+export function ToggleGroupDemo() {
+  return (
+    <Example>
+      <ToggleGroup type="single" defaultValue="comfortable" aria-label="Densidade">
+        <ToggleGroupItem value="comfortable">Comfortable</ToggleGroupItem>
+        <ToggleGroupItem value="compact">Compact</ToggleGroupItem>
+      </ToggleGroup>
     </Example>
   );
 }

@@ -38,6 +38,7 @@ export const nav: NavGroup[] = [
       { href: "/components/badge/", label: "Badge" },
       { href: "/components/avatar/", label: "Avatar" },
       { href: "/components/switch/", label: "Switch" },
+      { href: "/components/toggle-group/", label: "ToggleGroup" },
       { href: "/components/dropdown-menu/", label: "DropdownMenu" },
       { href: "/components/tooltip/", label: "Tooltip" },
       { href: "/components/popover/", label: "Popover" },

@@ -1,0 +1,33 @@
+import { ToggleGroupDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# ToggleGroup
+
+Uma opção entre poucas. Densidade, alinhamento, período.
+
+## Quando usar
+
+2–4 valores visíveis. Select se a lista cresce. Switch se é só liga/desliga.
+
+<DoDont
+  do="type single. Não deixar vazio: ignore onValueChange sem valor."
+  dont="ToggleGroup para tema Dark/Light se o produto só tem um botão de troca."
+/>
+
+<ToggleGroupDemo />
+
+<Snippet>{`import { ToggleGroup, ToggleGroupItem } from "@sable/ui"
+
+<ToggleGroup type="single" defaultValue="comfortable" aria-label="Densidade">
+  <ToggleGroupItem value="comfortable">Comfortable</ToggleGroupItem>
+  <ToggleGroupItem value="compact">Compact</ToggleGroupItem>
+</ToggleGroup>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Arrow", action: "Move entre itens" },
+    { key: "Space", action: "Ativa o focado" },
+  ]}
+/>
