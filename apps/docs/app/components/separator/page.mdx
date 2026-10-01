@@ -1,0 +1,22 @@
+import { SeparatorDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# Separator
+
+Linha entre grupos. Não é borda do card.
+
+## Quando usar
+
+Na lateral: Operação / Conta. No header: busca / avatar. Menu continua no DropdownMenuSeparator.
+
+<DoDont
+  do="Um grupo de cada lado. Horizontal na lista, vertical no header."
+  dont="Separator entre cada item, ou no lugar de um título de seção."
+/>
+
+<SeparatorDemo />
+
+<Snippet>{`import { Separator } from "@sable/ui"
+
+<Separator />
+<Separator orientation="vertical" className="h-4" />`}</Snippet>

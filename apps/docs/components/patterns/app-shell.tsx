@@ -16,12 +16,13 @@ import {
   DropdownMenuTrigger,
   Input,
   Kbd,
+  Separator,
   Wordmark,
 } from "@sable/ui";
 import { AppCommand, useAppCommand } from "./app-command";
 import { PedidosBoard } from "./pedidos-board";
 
-const NAV = ["Pedidos", "Clientes", "Relatórios", "Settings"] as const;
+const OPS = ["Pedidos", "Clientes", "Relatórios"] as const;
 
 export function AppShellPattern() {
   const { open, setOpen } = useAppCommand();
@@ -43,6 +44,7 @@ export function AppShellPattern() {
               ⌘K
             </Kbd>
           </div>
+          <Separator orientation="vertical" className="hidden h-4 sm:block" />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Conta">
@@ -63,7 +65,7 @@ export function AppShellPattern() {
           <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
             Operação
           </p>
-          {NAV.map((item) => (
+          {OPS.map((item) => (
             <div
               key={item}
               className={
@@ -75,6 +77,13 @@ export function AppShellPattern() {
               {item}
             </div>
           ))}
+          <Separator className="my-2" />
+          <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
+            Conta
+          </p>
+          <div className="rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-muted">
+            Settings
+          </div>
         </aside>
         <div className="p-4 md:p-6">
           <div className="mb-4">

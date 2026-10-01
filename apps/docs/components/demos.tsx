@@ -89,6 +89,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SelectionBar,
+  Separator,
   Avatar,
   Kbd,
   Command,
@@ -280,6 +281,23 @@ export function BadgeDemo() {
       <Badge variant="warning">Warning</Badge>
       <Badge variant="danger">Danger</Badge>
       <Badge variant="info">Info</Badge>
+    </Example>
+  );
+}
+
+export function SeparatorDemo() {
+  return (
+    <Example>
+      <div className="flex w-full max-w-sm flex-col gap-3">
+        <p className="text-sm">Operação</p>
+        <Separator />
+        <p className="text-sm text-muted">Conta</p>
+      </div>
+      <div className="flex h-8 items-center gap-3">
+        <span className="text-sm">Buscar</span>
+        <Separator orientation="vertical" />
+        <span className="text-sm">Conta</span>
+      </div>
     </Example>
   );
 }

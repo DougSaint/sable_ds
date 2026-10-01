@@ -11,7 +11,7 @@ export default function Page() {
         <h1>App Shell</h1>
         <p>
           Cabeçalho, navegação e a página. O breadcrumb diz o nível; a
-          lateral diz o módulo. ⌘K abre a paleta.
+          lateral separa Operação e Conta. ⌘K abre a paleta.
         </p>
       </Prose>
       <div className="mt-8">
