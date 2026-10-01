@@ -26,6 +26,7 @@ export const nav: NavGroup[] = [
       { href: "/components/textarea/", label: "Textarea" },
       { href: "/components/select/", label: "Select" },
       { href: "/components/dialog/", label: "Dialog" },
+      { href: "/components/sheet/", label: "Sheet" },
       { href: "/components/table/", label: "Table" },
       { href: "/components/toast/", label: "Toast" },
       { href: "/components/tabs/", label: "Tabs" },

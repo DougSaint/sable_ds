@@ -104,3 +104,13 @@ export {
   ErrorState,
   type EmptyStateProps,
 } from "./components/empty-state";
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+} from "./components/sheet";

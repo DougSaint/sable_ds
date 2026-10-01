@@ -1,0 +1,45 @@
+import { SheetDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Sheet
+
+Detalhe ou filtro na lateral. A lista continua visível atrás do overlay.
+
+## Quando usar
+
+Editar um pedido, aplicar filtros densos. Confirmação curta continua no Dialog.
+
+<DoDont
+  do="Um registro. Título com o ID. Esc fecha e devolve o foco."
+  dont="Sheet para ‘tem certeza?’. Isso é Dialog."
+/>
+
+<SheetDemo />
+
+<Snippet>{`import {
+  Sheet, SheetTrigger, SheetContent,
+  SheetHeader, SheetTitle, SheetFooter, Button,
+} from "@sable/ui"
+
+<Sheet>
+  <SheetTrigger asChild>
+    <Button variant="secondary">Detalhe</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>PED-1042</SheetTitle>
+    </SheetHeader>
+    <SheetFooter>
+      <Button>Salvar</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Fica preso no painel" },
+    { key: "Esc", action: "Fecha e devolve o foco" },
+  ]}
+/>

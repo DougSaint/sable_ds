@@ -57,6 +57,13 @@ import {
   Pagination,
   EmptyState,
   ErrorState,
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -401,6 +408,27 @@ export function EmptyStateDemo() {
           action={<Button variant="secondary">Tentar de novo</Button>}
         />
       </div>
+    </Example>
+  );
+}
+
+export function SheetDemo() {
+  return (
+    <Example>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="secondary">Detalhe</Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>PED-1042</SheetTitle>
+            <SheetDescription>Norte Log · Caxias do Sul</SheetDescription>
+          </SheetHeader>
+          <SheetFooter>
+            <Button>Salvar</Button>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </Example>
   );
 }

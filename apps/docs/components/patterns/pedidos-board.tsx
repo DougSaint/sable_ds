@@ -41,6 +41,7 @@ import {
   type Pedido,
 } from "@/lib/pedidos";
 import { EmptyState, ErrorState } from "./empty-error";
+import { PedidoDetailSheet } from "./pedido-detail";
 
 type StatusFilter = "all" | Pedido["status"];
 
@@ -97,6 +98,7 @@ export function PedidosBoard() {
   const [failed, setFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [archiveId, setArchiveId] = useState<string | null>(null);
+  const [detailId, setDetailId] = useState<string | null>(null);
 
   const filtered = useMemo(
     () =>
@@ -120,6 +122,7 @@ export function PedidosBoard() {
   const to = Math.min(current * PAGE_SIZE, filtered.length);
   const late = rows.filter((r) => r.status === "Atrasado").length;
   const pending = rows.find((r) => r.id === archiveId);
+  const detail = rows.find((r) => r.id === detailId) ?? null;
 
   function resetFilters() {
     setQ("");
@@ -241,9 +244,7 @@ export function PedidosBoard() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem
-                          onSelect={() => toast(`Editar ${r.id}`)}
-                        >
+                        <DropdownMenuItem onSelect={() => setDetailId(r.id)}>
                           Editar
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
@@ -265,6 +266,11 @@ export function PedidosBoard() {
           />
         </>
       )}
+
+      <PedidoDetailSheet
+        pedido={detail}
+        onClose={() => setDetailId(null)}
+      />
 
       <Dialog open={Boolean(pending)} onOpenChange={(o) => !o && setArchiveId(null)}>
         <DialogContent>
