@@ -50,6 +50,13 @@ import {
   TooltipContent,
   TooltipTrigger,
   toast,
+  Alert,
+  AlertTitle,
+  AlertDescription,
+  Skeleton,
+  Pagination,
+  EmptyState,
+  ErrorState,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -325,6 +332,75 @@ export function ComboboxDemo() {
         placeholder="Organização"
         className="max-w-xs"
       />
+    </Example>
+  );
+}
+
+export function AlertDemo() {
+  return (
+    <Example>
+      <div className="flex w-full flex-col gap-3">
+        <Alert variant="warning">
+          <AlertTitle>4 pedidos atrasados</AlertTitle>
+          <AlertDescription>
+            Priorize cobrança antes de abrir novos pedidos.
+          </AlertDescription>
+        </Alert>
+        <Alert variant="success">
+          <AlertTitle>Pagamento confirmado</AlertTitle>
+          <AlertDescription>PED-1043 baixado no caixa.</AlertDescription>
+        </Alert>
+        <Alert variant="danger">
+          <AlertTitle>Falha ao sincronizar</AlertTitle>
+          <AlertDescription>Tente de novo em alguns segundos.</AlertDescription>
+        </Alert>
+      </div>
+    </Example>
+  );
+}
+
+export function SkeletonDemo() {
+  return (
+    <Example>
+      <div className="flex w-full max-w-sm flex-col gap-2">
+        <Skeleton className="h-4 w-3/4" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-1/2" />
+      </div>
+    </Example>
+  );
+}
+
+export function PaginationDemo() {
+  const [page, setPage] = useState(1);
+  return (
+    <Example>
+      <Pagination
+        className="w-full"
+        page={page}
+        pageCount={5}
+        onPageChange={setPage}
+        summary={`${(page - 1) * 8 + 1}–${page * 8} de 40`}
+      />
+    </Example>
+  );
+}
+
+export function EmptyStateDemo() {
+  return (
+    <Example>
+      <div className="grid w-full gap-4 sm:grid-cols-2">
+        <EmptyState
+          title="Nenhum pedido"
+          description="Nenhum pedido com esses filtros."
+          action={<Button>Limpar filtros</Button>}
+        />
+        <ErrorState
+          title="Não foi possível carregar"
+          description="Tente de novo em alguns segundos."
+          action={<Button variant="secondary">Tentar de novo</Button>}
+        />
+      </div>
     </Example>
   );
 }

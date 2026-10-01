@@ -1,0 +1,30 @@
+import { EmptyStateDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# EmptyState
+
+Lista vazia e falha de carga são componentes diferentes. Vazio pede o próximo passo. Erro pede tentar de novo.
+
+## Quando usar
+
+Filtro sem resultado, primeira visita, ou a API caiu. Não misture os dois no mesmo card.
+
+<DoDont
+  do="Título curto, uma linha, uma ação. Erro com borda danger."
+  dont="Tabela com zero linhas e um 'nenhum dado' escondido no caption."
+/>
+
+<EmptyStateDemo />
+
+<Snippet>{`import { EmptyState, ErrorState, Button } from "@sable/ui"
+
+<EmptyState
+  title="Nenhum pedido"
+  description="Nenhum pedido com esses filtros."
+  action={<Button>Limpar filtros</Button>}
+/>
+
+<ErrorState
+  title="Não foi possível carregar"
+  action={<Button variant="secondary">Tentar de novo</Button>}
+/>`}</Snippet>

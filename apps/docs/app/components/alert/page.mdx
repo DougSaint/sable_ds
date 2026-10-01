@@ -1,0 +1,36 @@
+import { AlertDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Alert
+
+Aviso na própria tela. Toast some; Alert fica até o contexto mudar.
+
+## Quando usar
+
+Fila atrasada, falha de sync, confirmação que o operador ainda precisa ver. Warning e danger anunciam com `role="alert"`.
+
+<DoDont
+  do="Título + uma linha de próximo passo. Cor só no ícone e na borda."
+  dont="Usar terracotta no texto, ou Alert no lugar de validação de Field."
+/>
+
+## Anatomia
+
+Ícone semântico, título em foreground, descrição em muted.
+
+<AlertDemo />
+
+<Snippet>{`import { Alert, AlertTitle, AlertDescription } from "@sable/ui"
+
+<Alert variant="warning">
+  <AlertTitle>4 pedidos atrasados</AlertTitle>
+  <AlertDescription>Priorize a cobrança.</AlertDescription>
+</Alert>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Leitor de tela", action: "warning/danger: role=alert. Demais: status." },
+  ]}
+/>

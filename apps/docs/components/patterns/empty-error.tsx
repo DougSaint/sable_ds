@@ -1,4 +1,8 @@
-import { Button, Card, CardContent, CardHeader, CardTitle } from "@sable/ui";
+import {
+  Button,
+  EmptyState as EmptyStateUi,
+  ErrorState as ErrorStateUi,
+} from "@sable/ui";
 
 export function EmptyState({
   onAction,
@@ -8,38 +12,24 @@ export function EmptyState({
   actionLabel?: string;
 }) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Nenhum pedido</CardTitle>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <p className="text-sm text-muted">
-          Nenhum pedido com esses filtros. Limpe a busca ou crie um novo.
-        </p>
-        <div>
-          <Button onClick={onAction}>{actionLabel}</Button>
-        </div>
-      </CardContent>
-    </Card>
+    <EmptyStateUi
+      title="Nenhum pedido"
+      description="Nenhum pedido com esses filtros. Limpe a busca ou crie um novo."
+      action={<Button onClick={onAction}>{actionLabel}</Button>}
+    />
   );
 }
 
 export function ErrorState({ onRetry }: { onRetry?: () => void }) {
   return (
-    <Card className="border-danger/40">
-      <CardHeader>
-        <CardTitle>Não foi possível carregar</CardTitle>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <p className="text-sm text-muted">
-          Não foi possível buscar os pedidos. Tente de novo em alguns segundos.
-        </p>
-        <div>
-          <Button variant="secondary" onClick={onRetry}>
-            Tentar de novo
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+    <ErrorStateUi
+      title="Não foi possível carregar"
+      description="Não foi possível buscar os pedidos. Tente de novo em alguns segundos."
+      action={
+        <Button variant="secondary" onClick={onRetry}>
+          Tentar de novo
+        </Button>
+      }
+    />
   );
 }

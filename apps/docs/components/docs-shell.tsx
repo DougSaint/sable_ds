@@ -31,7 +31,7 @@ export function DocsShell({ children }: { children: ReactNode }) {
               Storybook
             </Link>
             <Link
-              href="https://github.com/DougSaint/sable"
+              href="https://github.com/DougSaint/sable_ds"
               className="text-sm text-muted hover:text-foreground"
             >
               GitHub

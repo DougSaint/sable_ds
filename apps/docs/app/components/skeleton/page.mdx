@@ -1,0 +1,24 @@
+import { SkeletonDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# Skeleton
+
+Placeholder do layout enquanto a lista carrega. Não é um spinner no centro da página.
+
+## Quando usar
+
+Primeira carga de tabela ou card. O contêiner fica `aria-busy`. O osso em si é decorativo.
+
+<DoDont
+  do="Repetir a grade real: mesmas colunas, mesma altura de linha."
+  dont="Skeleton eterno. Se falhou, vá para ErrorState."
+/>
+
+<SkeletonDemo />
+
+<Snippet>{`import { Skeleton } from "@sable/ui"
+
+<div aria-busy="true">
+  <Skeleton className="h-4 w-3/4" />
+  <Skeleton className="h-4 w-full" />
+</div>`}</Snippet>

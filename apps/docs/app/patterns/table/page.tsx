@@ -10,8 +10,9 @@ export default function Page() {
       <Prose>
         <h1>Tabela + filtros</h1>
         <p>
-          Busca e status ficam acima da grade. A tabela só lista. Se o filtro
-          não devolver nada, mostre o empty — não uma tabela oca.
+          Busca e status ficam acima da grade. A tabela só lista. Paginação
+          embaixo, 8 por página. Se o filtro não devolver nada, mostre o empty
+          — não uma tabela oca.
         </p>
       </Prose>
       <div className="mt-8">

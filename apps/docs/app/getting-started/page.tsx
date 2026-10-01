@@ -14,8 +14,8 @@ export default function GettingStartedPage() {
 
       <h2>Clone</h2>
       <pre className="my-4 overflow-x-auto rounded-[var(--radius-control)] border border-border bg-surface-2 p-4 font-mono text-sm">
-        {`git clone https://github.com/DougSaint/sable.git
-cd sable
+        {`git clone https://github.com/DougSaint/sable_ds.git
+cd sable_ds
 pnpm install
 pnpm dev:docs`}
       </pre>

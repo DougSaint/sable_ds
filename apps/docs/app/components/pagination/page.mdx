@@ -1,0 +1,35 @@
+import { PaginationDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Pagination
+
+Corta lista longa. Filtro continua acima; a página fica embaixo da tabela.
+
+## Quando usar
+
+Mais de uma tela de linhas. Uma página só: mostre o resumo, esconda os botões.
+
+<DoDont
+  do="Resumo '1–8 de 20' + Anterior/Próxima. Página atual com aria-current."
+  dont="Paginar o conjunto já filtrado de outro jeito, ou resetar o filtro ao mudar de página."
+/>
+
+<PaginationDemo />
+
+<Snippet>{`import { Pagination } from "@sable/ui"
+
+<Pagination
+  page={page}
+  pageCount={5}
+  onPageChange={setPage}
+  summary="1–8 de 40"
+/>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Anterior, números, Próxima" },
+    { key: "Enter / Space", action: "Vai para a página do botão" },
+  ]}
+/>

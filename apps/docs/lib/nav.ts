@@ -39,6 +39,10 @@ export const nav: NavGroup[] = [
       { href: "/components/radio-group/", label: "RadioGroup" },
       { href: "/components/date-picker/", label: "DatePicker" },
       { href: "/components/combobox/", label: "Combobox" },
+      { href: "/components/alert/", label: "Alert" },
+      { href: "/components/skeleton/", label: "Skeleton" },
+      { href: "/components/pagination/", label: "Pagination" },
+      { href: "/components/empty-state/", label: "EmptyState" },
     ],
   },
   {
