@@ -1,0 +1,32 @@
+import { ScrollAreaDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# ScrollArea
+
+Lista longa numa altura fixa. A barra é do sistema, não nativa da página.
+
+## Quando usar
+
+Nav lateral, painel, lista de logs. A página inteira continua no scroll do documento.
+
+<DoDont
+  do="Altura no Root (h-full ou h-*). min-h-0 no flex pai."
+  dont="overflow-y-auto no mesmo nó. Duas barras brigam."
+/>
+
+<ScrollAreaDemo />
+
+<Snippet>{`import { ScrollArea } from "@sable/ui"
+
+<ScrollArea className="h-48" aria-label="Módulos">
+  {/* itens */}
+</ScrollArea>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Arrow / Page", action: "Rola o viewport focado" },
+    { key: "Home / End", action: "Início ou fim da lista" },
+  ]}
+/>

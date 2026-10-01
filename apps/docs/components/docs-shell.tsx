@@ -40,7 +40,7 @@ export function DocsShell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 md:grid-cols-[220px_1fr]">
-        <aside className="hidden border-r border-border px-4 py-6 md:block">
+        <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] overflow-hidden border-r border-border px-4 py-6 md:block">
           <Sidebar />
         </aside>
         <main id="conteudo" className="min-w-0 px-4 py-8 md:px-10 md:py-10">

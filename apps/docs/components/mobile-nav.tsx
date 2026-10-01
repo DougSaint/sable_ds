@@ -30,9 +30,11 @@ export function MobileNav() {
           </svg>
         </Button>
       </DialogTrigger>
-      <DialogContent className="top-0 left-0 h-full max-h-none w-[min(100%,20rem)] max-w-none translate-x-0 translate-y-0 rounded-none border-y-0 border-l-0 p-4">
+      <DialogContent className="top-0 left-0 flex h-full max-h-none w-[min(100%,20rem)] max-w-none translate-x-0 translate-y-0 flex-col rounded-none border-y-0 border-l-0 p-4">
         <DialogTitle className="mb-4 text-sm">Navegação</DialogTitle>
-        <Sidebar onNavigate={() => setOpen(false)} />
+        <div className="min-h-0 flex-1">
+          <Sidebar onNavigate={() => setOpen(false)} />
+        </div>
       </DialogContent>
     </Dialog>
   );

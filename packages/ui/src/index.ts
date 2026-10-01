@@ -29,6 +29,7 @@ export { Checkbox } from "./components/checkbox";
 export { RadioGroup, RadioGroupItem } from "./components/radio-group";
 export { Switch } from "./components/switch";
 export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group";
+export { ScrollArea, ScrollBar } from "./components/scroll-area";
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/tabs";
 export {
   Tooltip,

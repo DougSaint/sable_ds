@@ -10,8 +10,8 @@ export default function Page() {
       <Prose>
         <h1>App Shell</h1>
         <p>
-          Cabeçalho, navegação e a página. O breadcrumb diz o nível; a
-          lateral separa Operação e Conta. ⌘K abre a paleta.
+          Cabeçalho, navegação e a página. A lateral rola na altura do
+          shell; Operação e Conta ficam no mesmo scroll. ⌘K abre a paleta.
         </p>
       </Prose>
       <div className="mt-8">

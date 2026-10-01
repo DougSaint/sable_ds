@@ -46,6 +46,7 @@ import {
   Switch,
   ToggleGroup,
   ToggleGroupItem,
+  ScrollArea,
   Table,
   TableBody,
   TableCell,
@@ -323,6 +324,37 @@ export function ToggleGroupDemo() {
         <ToggleGroupItem value="comfortable">Comfortable</ToggleGroupItem>
         <ToggleGroupItem value="compact">Compact</ToggleGroupItem>
       </ToggleGroup>
+    </Example>
+  );
+}
+
+const MODULES = [
+  "Pedidos",
+  "Clientes",
+  "Relatórios",
+  "Estoque",
+  "Financeiro",
+  "Integrações",
+  "Auditoria",
+  "Filiais",
+];
+
+export function ScrollAreaDemo() {
+  return (
+    <Example>
+      <ScrollArea
+        className="h-40 w-48 rounded-[var(--radius-control)] border border-border"
+        aria-label="Módulos"
+        type="always"
+      >
+        <ul className="p-2">
+          {MODULES.map((item) => (
+            <li key={item} className="px-2 py-1.5 text-sm">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </ScrollArea>
     </Example>
   );
 }

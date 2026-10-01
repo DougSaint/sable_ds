@@ -16,13 +16,22 @@ import {
   DropdownMenuTrigger,
   Input,
   Kbd,
+  ScrollArea,
   Separator,
   Wordmark,
 } from "@sable/ui";
 import { AppCommand, useAppCommand } from "./app-command";
 import { PedidosBoard } from "./pedidos-board";
 
-const OPS = ["Pedidos", "Clientes", "Relatórios"] as const;
+const OPS = [
+  "Pedidos",
+  "Clientes",
+  "Relatórios",
+  "Estoque",
+  "Financeiro",
+  "Integrações",
+  "Auditoria",
+] as const;
 
 export function AppShellPattern() {
   const { open, setOpen } = useAppCommand();
@@ -60,30 +69,34 @@ export function AppShellPattern() {
           </DropdownMenu>
         </div>
       </div>
-      <div className="grid min-h-96 grid-cols-1 md:grid-cols-[180px_1fr]">
-        <aside className="border-b border-border bg-surface p-3 md:border-r md:border-b-0">
-          <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
-            Operação
-          </p>
-          {OPS.map((item) => (
-            <div
-              key={item}
-              className={
-                item === "Pedidos"
-                  ? "rounded-[var(--radius-control)] bg-surface-2 px-2 py-1.5 text-sm font-medium"
-                  : "rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-muted"
-              }
-            >
-              {item}
+      <div className="grid min-h-96 grid-cols-1 md:h-[28rem] md:grid-cols-[180px_1fr] md:min-h-0">
+        <aside className="flex max-h-40 min-h-0 flex-col border-b border-border bg-surface md:max-h-none md:h-full md:border-r md:border-b-0">
+          <ScrollArea className="h-full" aria-label="Navegação" type="always">
+            <div className="p-3">
+              <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
+                Operação
+              </p>
+              {OPS.map((item) => (
+                <div
+                  key={item}
+                  className={
+                    item === "Pedidos"
+                      ? "rounded-[var(--radius-control)] bg-surface-2 px-2 py-1.5 text-sm font-medium"
+                      : "rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-muted"
+                  }
+                >
+                  {item}
+                </div>
+              ))}
+              <Separator className="my-2" />
+              <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
+                Conta
+              </p>
+              <div className="rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-muted">
+                Settings
+              </div>
             </div>
-          ))}
-          <Separator className="my-2" />
-          <p className="mb-2 px-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">
-            Conta
-          </p>
-          <div className="rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-muted">
-            Settings
-          </div>
+          </ScrollArea>
         </aside>
         <div className="p-4 md:p-6">
           <div className="mb-4">
