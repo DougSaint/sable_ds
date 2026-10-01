@@ -4,6 +4,7 @@ import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 import { cn } from "../lib/utils";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./dialog";
 
 function Command({
   className,
@@ -104,8 +105,27 @@ function CommandSeparator({
   );
 }
 
+function CommandDialog({
+  title = "Comando",
+  children,
+  ...props
+}: React.ComponentProps<typeof Dialog> & { title?: string }) {
+  return (
+    <Dialog {...props}>
+      <DialogContent className="overflow-hidden p-0 gap-0" showClose={false}>
+        <DialogTitle className="sr-only">{title}</DialogTitle>
+        <DialogDescription className="sr-only">
+          Busca de páginas e ações
+        </DialogDescription>
+        {children}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export {
   Command,
+  CommandDialog,
   CommandInput,
   CommandList,
   CommandEmpty,

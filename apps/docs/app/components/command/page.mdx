@@ -1,0 +1,45 @@
+import { CommandDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Command
+
+Paleta para ir a um módulo sem clicar na lateral. ⌘K abre, Esc fecha.
+
+## Quando usar
+
+App Shell. Busca de páginas e ações globais, não filtro de tabela.
+
+<DoDont
+  do="Grupos curtos: Operação, Conta. Um item = um destino."
+  dont="Metade do CRUD da tabela dentro da paleta."
+/>
+
+<CommandDemo />
+
+<Snippet>{`import {
+  Command, CommandDialog, CommandInput, CommandList,
+  CommandEmpty, CommandGroup, CommandItem,
+} from "@sable/ui"
+
+<CommandDialog open={open} onOpenChange={setOpen}>
+  <Command>
+    <CommandInput placeholder="Ir para…" />
+    <CommandList>
+      <CommandEmpty>Nada encontrado</CommandEmpty>
+      <CommandGroup heading="Operação">
+        <CommandItem>Pedidos</CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </Command>
+</CommandDialog>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "⌘K / Ctrl+K", action: "Abre ou fecha a paleta" },
+    { key: "Arrow", action: "Move entre itens" },
+    { key: "Enter", action: "Executa o item" },
+    { key: "Esc", action: "Fecha" },
+  ]}
+/>

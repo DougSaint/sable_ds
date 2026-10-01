@@ -75,6 +75,7 @@ export { Calendar } from "./components/calendar";
 export { DatePicker, type DatePickerProps } from "./components/date-picker";
 export {
   Command,
+  CommandDialog,
   CommandInput,
   CommandList,
   CommandEmpty,

@@ -45,8 +45,11 @@ function DialogOverlay({
 function DialogContent({
   className,
   children,
+  showClose = true,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content>) {
+}: React.ComponentProps<typeof DialogPrimitive.Content> & {
+  showClose?: boolean;
+}) {
   return (
     <DialogPortal>
       <DialogOverlay />
@@ -59,10 +62,12 @@ function DialogContent({
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="absolute top-4 right-4 rounded-[var(--radius-control)] p-1 text-muted transition-colors hover:bg-surface-2 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none">
-          <X className="size-4" />
-          <span className="sr-only">Fechar</span>
-        </DialogPrimitive.Close>
+        {showClose ? (
+          <DialogPrimitive.Close className="absolute top-4 right-4 rounded-[var(--radius-control)] p-1 text-muted transition-colors hover:bg-surface-2 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none">
+            <X className="size-4" />
+            <span className="sr-only">Fechar</span>
+          </DialogPrimitive.Close>
+        ) : null}
       </DialogPrimitive.Content>
     </DialogPortal>
   );

@@ -18,21 +18,26 @@ import {
   Kbd,
   Wordmark,
 } from "@sable/ui";
+import { AppCommand, useAppCommand } from "./app-command";
 import { PedidosBoard } from "./pedidos-board";
 
 const NAV = ["Pedidos", "Clientes", "Relatórios", "Settings"] as const;
 
 export function AppShellPattern() {
+  const { open, setOpen } = useAppCommand();
   return (
     <div className="overflow-hidden rounded-[var(--radius-card)] border border-border bg-background shadow-[var(--shadow-card)]">
+      <AppCommand open={open} onOpenChange={setOpen} />
       <div className="flex h-[var(--control-h)] items-center justify-between border-b border-border px-4">
         <Wordmark />
         <div className="flex items-center gap-[var(--control-gap)]">
           <div className="relative hidden sm:block">
             <Input
+              readOnly
               placeholder="Buscar…"
-              className="w-44 pr-12 md:w-56"
-              aria-label="Buscar"
+              className="w-44 cursor-pointer pr-12 md:w-56"
+              aria-label="Abrir paleta de comando"
+              onClick={() => setOpen(true)}
             />
             <Kbd className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2">
               ⌘K

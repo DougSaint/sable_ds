@@ -77,6 +77,13 @@ import {
   SelectionBar,
   Avatar,
   Kbd,
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -512,6 +519,29 @@ export function KbdDemo() {
       <Kbd>⌘K</Kbd>
       <Kbd>⌘S</Kbd>
       <Kbd>Esc</Kbd>
+    </Example>
+  );
+}
+
+export function CommandDemo() {
+  const [open, setOpen] = useState(false);
+  return (
+    <Example>
+      <Button onClick={() => setOpen(true)}>
+        Abrir paleta <Kbd>⌘K</Kbd>
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen} title="Ir para">
+        <Command>
+          <CommandInput placeholder="Ir para…" />
+          <CommandList>
+            <CommandEmpty>Nada encontrado</CommandEmpty>
+            <CommandGroup heading="Operação">
+              <CommandItem onSelect={() => setOpen(false)}>Pedidos</CommandItem>
+              <CommandItem onSelect={() => setOpen(false)}>Settings</CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </Example>
   );
 }
