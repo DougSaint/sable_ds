@@ -30,6 +30,7 @@ export const nav: NavGroup[] = [
       { href: "/components/table/", label: "Table" },
       { href: "/components/toast/", label: "Toast" },
       { href: "/components/tabs/", label: "Tabs" },
+      { href: "/components/accordion/", label: "Accordion" },
       { href: "/components/card/", label: "Card" },
       { href: "/components/badge/", label: "Badge" },
       { href: "/components/switch/", label: "Switch" },

@@ -1,0 +1,38 @@
+import { AccordionDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Accordion
+
+Grupos longos na mesma página. Settings, filtros avançados, FAQ operacional.
+
+## Quando usar
+
+Várias seções que o operador abre sob demanda. Abas quando as seções são poucos mundos distintos (Geral / Equipe / Billing).
+
+<DoDont
+  do="Título da seção como verbo ou substantivo curto. Uma seção aberta por padrão se for a mais usada."
+  dont="Accordion de um item só, ou esconder a ação primária Salvar dentro de um grupo fechado."
+/>
+
+<AccordionDemo />
+
+<Snippet>{`import {
+  Accordion, AccordionItem, AccordionTrigger, AccordionContent,
+} from "@sable/ui"
+
+<Accordion type="multiple" defaultValue={["notif"]}>
+  <AccordionItem value="notif">
+    <AccordionTrigger>Notificações</AccordionTrigger>
+    <AccordionContent>Relatórios semanais por e-mail.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Foco no trigger" },
+    { key: "Enter / Space", action: "Abre ou fecha a seção" },
+    { key: "Arrow", action: "Vai para o próximo trigger" },
+  ]}
+/>

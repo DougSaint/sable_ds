@@ -1,6 +1,21 @@
 "use client";
 
-import { Button, Card, CardContent, Field, Input, Switch, Tabs, TabsContent, TabsList, TabsTrigger } from "@sable/ui";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Button,
+  Card,
+  CardContent,
+  Field,
+  Input,
+  Switch,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@sable/ui";
 
 export function SettingsPattern() {
   return (
@@ -18,10 +33,26 @@ export function SettingsPattern() {
               <Field label="Nome da org" htmlFor="org" hint="Aparece no App Shell">
                 <Input id="org" defaultValue="Norte Log" />
               </Field>
-              <label className="flex items-center justify-between gap-4 text-sm">
-                Relatórios semanais
-                <Switch defaultChecked />
-              </label>
+              <Accordion type="multiple" defaultValue={["notif"]}>
+                <AccordionItem value="notif">
+                  <AccordionTrigger>Notificações</AccordionTrigger>
+                  <AccordionContent>
+                    <label className="flex items-center justify-between gap-4 text-sm text-foreground">
+                      Relatórios semanais
+                      <Switch defaultChecked />
+                    </label>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="acesso">
+                  <AccordionTrigger>Acesso</AccordionTrigger>
+                  <AccordionContent>
+                    <label className="flex items-center justify-between gap-4 text-sm text-foreground">
+                      Exigir SSO
+                      <Switch />
+                    </label>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
               <div>
                 <Button>Salvar</Button>
               </div>

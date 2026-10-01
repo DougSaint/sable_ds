@@ -11,7 +11,7 @@ export default function Page() {
         <h1>Settings</h1>
         <p>
           Perfil, equipe e billing da mesma organização. As abas trocam o
-          conteúdo, não a rota.
+          mundo. Dentro de Geral, accordion agrupa o que é raro de mexer.
         </p>
       </Prose>
       <div className="mt-8">

@@ -114,3 +114,9 @@ export {
   SheetTitle,
   SheetDescription,
 } from "./components/sheet";
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./components/accordion";

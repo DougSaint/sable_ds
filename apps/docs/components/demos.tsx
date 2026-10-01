@@ -53,6 +53,10 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
   Skeleton,
   Pagination,
   EmptyState,
@@ -429,6 +433,23 @@ export function SheetDemo() {
           </SheetFooter>
         </SheetContent>
       </Sheet>
+    </Example>
+  );
+}
+
+export function AccordionDemo() {
+  return (
+    <Example>
+      <Accordion type="multiple" defaultValue={["notif"]} className="w-full max-w-md">
+        <AccordionItem value="notif">
+          <AccordionTrigger>Notificações</AccordionTrigger>
+          <AccordionContent>Relatórios semanais por e-mail.</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="acesso">
+          <AccordionTrigger>Acesso</AccordionTrigger>
+          <AccordionContent>SSO obrigatório nesta org.</AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </Example>
   );
 }
