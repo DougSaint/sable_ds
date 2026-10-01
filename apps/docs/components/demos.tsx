@@ -20,6 +20,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -156,6 +165,30 @@ export function DialogDemo() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+    </Example>
+  );
+}
+
+export function AlertDialogDemo() {
+  return (
+    <Example>
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button>Arquivar</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Arquivar 3 pedidos?</AlertDialogTitle>
+            <AlertDialogDescription>
+              O histórico permanece.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction>Arquivar</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Example>
   );
 }
@@ -497,7 +530,23 @@ export function SelectionBarDemo() {
   return (
     <Example>
       <SelectionBar count={3} label="3 pedidos selecionados" className="w-full">
-        <Button size="sm">Arquivar</Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button size="sm">Arquivar</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Arquivar 3 pedidos?</AlertDialogTitle>
+              <AlertDialogDescription>
+                O histórico permanece.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancelar</AlertDialogCancel>
+              <AlertDialogAction>Arquivar</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </SelectionBar>
     </Example>
   );

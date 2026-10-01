@@ -5,15 +5,18 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   Badge,
   Button,
   Checkbox,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -243,9 +246,29 @@ export function PedidosBoard() {
       </div>
 
       <SelectionBar count={selected.length} label={selectionLabel}>
-        <Button size="sm" onClick={archiveSelected}>
-          Arquivar
-        </Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button size="sm">Arquivar</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                {selected.length === 1
+                  ? "Arquivar 1 pedido?"
+                  : `Arquivar ${selected.length} pedidos?`}
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                O histórico permanece.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancelar</AlertDialogCancel>
+              <AlertDialogAction onClick={archiveSelected}>
+                Arquivar
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </SelectionBar>
 
       {loading ? (
@@ -335,24 +358,27 @@ export function PedidosBoard() {
         onClose={() => setDetailId(null)}
       />
 
-      <Dialog open={Boolean(pending)} onOpenChange={(o) => !o && setArchiveId(null)}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Arquivar pedido</DialogTitle>
-            <DialogDescription>
+      <AlertDialog
+        open={Boolean(pending)}
+        onOpenChange={(o) => !o && setArchiveId(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Arquivar pedido</AlertDialogTitle>
+            <AlertDialogDescription>
               {pending
                 ? `${pending.id} · ${pending.customer}. O histórico permanece.`
                 : null}
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant="secondary" onClick={() => setArchiveId(null)}>
-              Cancelar
-            </Button>
-            <Button onClick={confirmArchive}>Arquivar</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmArchive}>
+              Arquivar
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

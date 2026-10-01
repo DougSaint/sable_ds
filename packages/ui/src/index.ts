@@ -46,6 +46,17 @@ export {
   DialogDescription,
 } from "./components/dialog";
 export {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "./components/alert-dialog";
+export {
   Select,
   SelectGroup,
   SelectValue,

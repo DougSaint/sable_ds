@@ -1,0 +1,49 @@
+import { AlertDialogDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# AlertDialog
+
+Confirmação destrutiva. A ação não acontece no primeiro clique.
+
+## Quando usar
+
+Arquivar, apagar, sair sem salvar. Formulário curto continua no Dialog.
+
+<DoDont
+  do="Título em forma de pergunta. Cancelar à esquerda, ação destrutiva à direita."
+  dont="AlertDialog para detalhe de registro, ou confirmar um filtro."
+/>
+
+<AlertDialogDemo />
+
+<Snippet>{`import {
+  AlertDialog, AlertDialogTrigger, AlertDialogContent,
+  AlertDialogHeader, AlertDialogTitle, AlertDialogDescription,
+  AlertDialogFooter, AlertDialogCancel, AlertDialogAction, Button,
+} from "@sable/ui"
+
+<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button>Arquivar</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Arquivar 3 pedidos?</AlertDialogTitle>
+      <AlertDialogDescription>O histórico permanece.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancelar</AlertDialogCancel>
+      <AlertDialogAction>Arquivar</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Tab", action: "Fica preso no dialog" },
+    { key: "Esc", action: "Cancela e devolve o foco" },
+    { key: "Enter", action: "Ativa o controle focado" },
+  ]}
+/>
