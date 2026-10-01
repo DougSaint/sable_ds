@@ -46,6 +46,7 @@ export const nav: NavGroup[] = [
       { href: "/components/skeleton/", label: "Skeleton" },
       { href: "/components/pagination/", label: "Pagination" },
       { href: "/components/empty-state/", label: "EmptyState" },
+      { href: "/components/selection-bar/", label: "SelectionBar" },
     ],
   },
   {

@@ -1,0 +1,23 @@
+import { SelectionBarDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# SelectionBar
+
+Ações em lote. Só existe enquanto há linhas marcadas.
+
+## Quando usar
+
+Arquivar, exportar, atribuir — na tabela, não no dropdown de uma linha.
+
+<DoDont
+  do="Contagem + uma ação primária. Some quando a seleção zera."
+  dont="Barra permanente com Arquivar desabilitado, ou misturar com o filtro."
+/>
+
+<SelectionBarDemo />
+
+<Snippet>{`import { SelectionBar, Button } from "@sable/ui"
+
+<SelectionBar count={3} label="3 pedidos selecionados">
+  <Button>Arquivar</Button>
+</SelectionBar>`}</Snippet>

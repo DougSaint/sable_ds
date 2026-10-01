@@ -7,6 +7,7 @@ import {
   AlertTitle,
   Badge,
   Button,
+  Checkbox,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -25,6 +26,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectionBar,
   Skeleton,
   Table,
   TableBody,
@@ -52,6 +54,7 @@ function PedidosTableSkeleton() {
     <Table>
       <TableHeader>
         <TableRow>
+          <TableHead className="w-10" />
           <TableHead>Pedido</TableHead>
           <TableHead>Cliente</TableHead>
           <TableHead>Origem</TableHead>
@@ -65,6 +68,9 @@ function PedidosTableSkeleton() {
       <TableBody>
         {Array.from({ length: PAGE_SIZE }, (_, i) => (
           <TableRow key={i}>
+            <TableCell>
+              <Skeleton className="h-4 w-4" />
+            </TableCell>
             <TableCell>
               <Skeleton className="h-4 w-16" />
             </TableCell>
@@ -99,6 +105,7 @@ export function PedidosBoard() {
   const [loading, setLoading] = useState(false);
   const [archiveId, setArchiveId] = useState<string | null>(null);
   const [detailId, setDetailId] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string[]>([]);
 
   const filtered = useMemo(
     () =>
@@ -113,6 +120,7 @@ export function PedidosBoard() {
 
   useEffect(() => {
     setPage(1);
+    setSelected([]);
   }, [q, status]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -123,6 +131,14 @@ export function PedidosBoard() {
   const late = rows.filter((r) => r.status === "Atrasado").length;
   const pending = rows.find((r) => r.id === archiveId);
   const detail = rows.find((r) => r.id === detailId) ?? null;
+  const pageIds = slice.map((r) => r.id);
+  const selectedOnPage = pageIds.filter((id) => selected.includes(id));
+  const pageChecked =
+    pageIds.length > 0 && selectedOnPage.length === pageIds.length
+      ? true
+      : selectedOnPage.length > 0
+        ? "indeterminate"
+        : false;
 
   function resetFilters() {
     setQ("");
@@ -134,9 +150,31 @@ export function PedidosBoard() {
     window.setTimeout(() => setLoading(false), 800);
   }
 
+  function toggleOne(id: string, on: boolean) {
+    setSelected((prev) =>
+      on ? [...new Set([...prev, id])] : prev.filter((x) => x !== id),
+    );
+  }
+
+  function togglePage(on: boolean) {
+    setSelected((prev) => {
+      if (on) return [...new Set([...prev, ...pageIds])];
+      return prev.filter((id) => !pageIds.includes(id));
+    });
+  }
+
+  function archiveSelected() {
+    const n = selected.length;
+    if (n === 0) return;
+    setRows((prev) => prev.filter((r) => !selected.includes(r.id)));
+    toast(n === 1 ? "Arquivado 1 pedido" : `Arquivados ${n} pedidos`);
+    setSelected([]);
+  }
+
   function confirmArchive() {
     if (!archiveId) return;
     setRows((prev) => prev.filter((r) => r.id !== archiveId));
+    setSelected((prev) => prev.filter((id) => id !== archiveId));
     toast(`Arquivado ${archiveId}`);
     setArchiveId(null);
   }
@@ -144,6 +182,11 @@ export function PedidosBoard() {
   if (failed) {
     return <ErrorState onRetry={() => setFailed(false)} />;
   }
+
+  const selectionLabel =
+    selected.length === 1
+      ? "1 pedido selecionado"
+      : `${selected.length} pedidos selecionados`;
 
   return (
     <div className="flex flex-col gap-4">
@@ -199,6 +242,12 @@ export function PedidosBoard() {
         </Button>
       </div>
 
+      <SelectionBar count={selected.length} label={selectionLabel}>
+        <Button size="sm" onClick={archiveSelected}>
+          Arquivar
+        </Button>
+      </SelectionBar>
+
       {loading ? (
         <div aria-busy="true" aria-live="polite">
           <PedidosTableSkeleton />
@@ -210,6 +259,13 @@ export function PedidosBoard() {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead className="w-10">
+                  <Checkbox
+                    checked={pageChecked}
+                    onCheckedChange={(v) => togglePage(v === true)}
+                    aria-label="Selecionar página"
+                  />
+                </TableHead>
                 <TableHead>Pedido</TableHead>
                 <TableHead>Cliente</TableHead>
                 <TableHead>Origem</TableHead>
@@ -223,6 +279,13 @@ export function PedidosBoard() {
             <TableBody>
               {slice.map((r) => (
                 <TableRow key={r.id}>
+                  <TableCell>
+                    <Checkbox
+                      checked={selected.includes(r.id)}
+                      onCheckedChange={(v) => toggleOne(r.id, v === true)}
+                      aria-label={`Selecionar ${r.id}`}
+                    />
+                  </TableCell>
                   <TableCell className="font-mono text-xs">{r.id}</TableCell>
                   <TableCell>{r.customer}</TableCell>
                   <TableCell className="text-muted">{r.origin}</TableCell>

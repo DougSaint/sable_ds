@@ -128,3 +128,4 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "./components/breadcrumb";
+export { SelectionBar, type SelectionBarProps } from "./components/selection-bar";

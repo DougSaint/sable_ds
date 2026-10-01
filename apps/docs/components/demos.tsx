@@ -74,6 +74,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SelectionBar,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -474,6 +475,16 @@ export function BreadcrumbDemo() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+    </Example>
+  );
+}
+
+export function SelectionBarDemo() {
+  return (
+    <Example>
+      <SelectionBar count={3} label="3 pedidos selecionados" className="w-full">
+        <Button size="sm">Arquivar</Button>
+      </SelectionBar>
     </Example>
   );
 }
