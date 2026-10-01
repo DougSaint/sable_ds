@@ -57,6 +57,12 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
   Skeleton,
   Pagination,
   EmptyState,
@@ -450,6 +456,24 @@ export function AccordionDemo() {
           <AccordionContent>SSO obrigatório nesta org.</AccordionContent>
         </AccordionItem>
       </Accordion>
+    </Example>
+  );
+}
+
+export function BreadcrumbDemo() {
+  return (
+    <Example>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">Operação</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Pedidos</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     </Example>
   );
 }

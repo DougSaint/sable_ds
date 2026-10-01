@@ -120,3 +120,11 @@ export {
   AccordionTrigger,
   AccordionContent,
 } from "./components/accordion";
+export {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "./components/breadcrumb";

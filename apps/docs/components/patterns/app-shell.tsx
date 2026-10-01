@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Input, Wordmark } from "@sable/ui";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, Input, Wordmark } from "@sable/ui";
 import { PedidosBoard } from "./pedidos-board";
 
 const NAV = ["Pedidos", "Clientes", "Relatórios", "Settings"] as const;
@@ -37,6 +37,17 @@ export function AppShellPattern() {
         </aside>
         <div className="p-4 md:p-6">
           <div className="mb-4">
+            <Breadcrumb className="mb-2">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Operação</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Pedidos</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <h2 className="text-lg font-semibold tracking-tight">Pedidos</h2>
             <p className="mt-1 text-sm text-muted">Últimos 7 dias</p>
           </div>

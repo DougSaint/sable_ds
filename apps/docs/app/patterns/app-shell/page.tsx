@@ -10,8 +10,8 @@ export default function Page() {
       <Prose>
         <h1>App Shell</h1>
         <p>
-          Cabeçalho, navegação e a página. Pedidos, cadastros e configuração
-          moram aqui dentro.
+          Cabeçalho, navegação e a página. O breadcrumb diz o nível; a
+          lateral diz o módulo.
         </p>
       </Prose>
       <div className="mt-8">
