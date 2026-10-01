@@ -1,0 +1,21 @@
+import { ProgressDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# Progress
+
+Trabalho com duração conhecida. Exportar, lote, upload.
+
+## Quando usar
+
+Porcentagem que anda. Primeira carga da tabela continua no Skeleton.
+
+<DoDont
+  do="aria-label no que está acontecendo: Exportar CSV. 0 a 100."
+  dont="Progress indeterminado no lugar do Skeleton, ou barra sem nome."
+/>
+
+<ProgressDemo />
+
+<Snippet>{`import { Progress } from "@sable/ui"
+
+<Progress value={40} aria-label="Exportar CSV" />`}</Snippet>

@@ -73,6 +73,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Skeleton,
+  Progress,
   Pagination,
   EmptyState,
   ErrorState,
@@ -432,6 +433,14 @@ export function SkeletonDemo() {
         <Skeleton className="h-4 w-full" />
         <Skeleton className="h-4 w-1/2" />
       </div>
+    </Example>
+  );
+}
+
+export function ProgressDemo() {
+  return (
+    <Example>
+      <Progress value={40} aria-label="Exportar CSV" className="max-w-sm" />
     </Example>
   );
 }

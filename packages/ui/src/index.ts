@@ -143,3 +143,4 @@ export {
 export { SelectionBar, type SelectionBarProps } from "./components/selection-bar";
 export { Avatar, avatarVariants, type AvatarProps } from "./components/avatar";
 export { Kbd } from "./components/kbd";
+export { Progress } from "./components/progress";

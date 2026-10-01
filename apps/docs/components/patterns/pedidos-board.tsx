@@ -24,6 +24,7 @@ import {
   DropdownMenuTrigger,
   Input,
   Pagination,
+  Progress,
   Select,
   SelectContent,
   SelectItem,
@@ -109,6 +110,7 @@ export function PedidosBoard() {
   const [archiveId, setArchiveId] = useState<string | null>(null);
   const [detailId, setDetailId] = useState<string | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
+  const [exportPct, setExportPct] = useState<number | null>(null);
 
   const filtered = useMemo(
     () =>
@@ -172,6 +174,18 @@ export function PedidosBoard() {
     setRows((prev) => prev.filter((r) => !selected.includes(r.id)));
     toast(n === 1 ? "Arquivado 1 pedido" : `Arquivados ${n} pedidos`);
     setSelected([]);
+  }
+
+  function exportSelected() {
+    const n = selected.length;
+    if (n === 0 || exportPct != null) return;
+    setExportPct(25);
+    window.setTimeout(() => setExportPct(50), 160);
+    window.setTimeout(() => setExportPct(75), 320);
+    window.setTimeout(() => {
+      setExportPct(null);
+      toast(n === 1 ? "CSV de 1 pedido" : `CSV de ${n} pedidos`);
+    }, 480);
   }
 
   function confirmArchive() {
@@ -269,7 +283,26 @@ export function PedidosBoard() {
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
+        <Button
+          size="sm"
+          variant="secondary"
+          disabled={exportPct != null}
+          onClick={exportSelected}
+        >
+          Exportar
+        </Button>
       </SelectionBar>
+
+      {exportPct != null ? (
+        <div className="flex items-center gap-3">
+          <Progress
+            value={exportPct}
+            aria-label="Exportar CSV"
+            className="flex-1"
+          />
+          <span className="font-mono text-xs text-muted">{exportPct}%</span>
+        </div>
+      ) : null}
 
       {loading ? (
         <div aria-busy="true" aria-live="polite">
