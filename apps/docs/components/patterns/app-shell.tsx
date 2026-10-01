@@ -1,6 +1,22 @@
 "use client";
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, Input, Wordmark } from "@sable/ui";
+import {
+  Avatar,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  Input,
+  Wordmark,
+} from "@sable/ui";
 import { PedidosBoard } from "./pedidos-board";
 
 const NAV = ["Pedidos", "Clientes", "Relatórios", "Settings"] as const;
@@ -12,9 +28,19 @@ export function AppShellPattern() {
         <Wordmark />
         <div className="flex items-center gap-[var(--control-gap)]">
           <Input placeholder="Buscar…" className="hidden w-44 sm:block md:w-56" />
-          <Button size="sm" variant="secondary">
-            Conta
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Conta">
+                <Avatar fallback="NL" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>Perfil</DropdownMenuItem>
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Sair</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       <div className="grid min-h-96 grid-cols-1 md:grid-cols-[180px_1fr]">

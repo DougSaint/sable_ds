@@ -1,0 +1,22 @@
+import { AvatarDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# Avatar
+
+Quem está na sessão. Cabeçalho, comentário, atribuído.
+
+## Quando usar
+
+Menu da conta, coluna de responsável. Iniciais se não houver foto.
+
+<DoDont
+  do="Duas letras. aria-label com o nome. Foto é opcional."
+  dont="Avatar sem nome acessível, ou foto como único jeito de reconhecer a pessoa."
+/>
+
+<AvatarDemo />
+
+<Snippet>{`import { Avatar } from "@sable/ui"
+
+<Avatar fallback="NL" aria-label="Norte Log" />
+<Avatar src="/ana.png" alt="Ana Costa" fallback="AC" />`}</Snippet>

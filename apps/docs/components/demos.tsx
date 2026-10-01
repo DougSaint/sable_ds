@@ -75,6 +75,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SelectionBar,
+  Avatar,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -485,6 +486,16 @@ export function SelectionBarDemo() {
       <SelectionBar count={3} label="3 pedidos selecionados" className="w-full">
         <Button size="sm">Arquivar</Button>
       </SelectionBar>
+    </Example>
+  );
+}
+
+export function AvatarDemo() {
+  return (
+    <Example>
+      <Avatar fallback="NL" aria-label="Norte Log" size="sm" />
+      <Avatar fallback="AC" aria-label="Ana Costa" />
+      <Avatar fallback="DS" aria-label="Doug Saint" size="lg" />
     </Example>
   );
 }

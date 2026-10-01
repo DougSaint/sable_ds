@@ -129,3 +129,4 @@ export {
   BreadcrumbSeparator,
 } from "./components/breadcrumb";
 export { SelectionBar, type SelectionBarProps } from "./components/selection-bar";
+export { Avatar, avatarVariants, type AvatarProps } from "./components/avatar";
