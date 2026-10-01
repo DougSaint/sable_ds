@@ -53,6 +53,7 @@ export const nav: NavGroup[] = [
       { href: "/components/alert/", label: "Alert" },
       { href: "/components/skeleton/", label: "Skeleton" },
       { href: "/components/progress/", label: "Progress" },
+      { href: "/components/slider/", label: "Slider" },
       { href: "/components/pagination/", label: "Pagination" },
       { href: "/components/empty-state/", label: "EmptyState" },
       { href: "/components/selection-bar/", label: "SelectionBar" },

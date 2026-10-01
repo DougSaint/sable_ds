@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +11,7 @@ import {
   CardContent,
   Field,
   Input,
+  Slider,
   Switch,
   Tabs,
   TabsContent,
@@ -18,6 +20,7 @@ import {
 } from "@sable/ui";
 
 export function SettingsPattern() {
+  const [digestHour, setDigestHour] = useState(8);
   return (
     <div className="max-w-2xl">
       <h2 className="mb-4 text-xl font-semibold tracking-tight">Settings</h2>
@@ -37,10 +40,25 @@ export function SettingsPattern() {
                 <AccordionItem value="notif">
                   <AccordionTrigger>Notificações</AccordionTrigger>
                   <AccordionContent>
-                    <label className="flex items-center justify-between gap-4 text-sm text-foreground">
-                      Relatórios semanais
-                      <Switch defaultChecked />
-                    </label>
+                    <div className="flex flex-col gap-4">
+                      <label className="flex items-center justify-between gap-4 text-sm text-foreground">
+                        Relatórios semanais
+                        <Switch defaultChecked />
+                      </label>
+                      <Field
+                        label={`Digest às ${digestHour}h`}
+                        hint="6h às 20h"
+                      >
+                        <Slider
+                          min={6}
+                          max={20}
+                          step={1}
+                          value={[digestHour]}
+                          onValueChange={(v) => setDigestHour(v[0] ?? 8)}
+                          aria-label="Horário do digest"
+                        />
+                      </Field>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="acesso">

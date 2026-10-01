@@ -1,0 +1,30 @@
+import { SliderDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Slider
+
+Um valor contínuo numa faixa. Horário, limite, volume.
+
+## Quando usar
+
+Número que o operador sente na pista. Select se são 3–5 opções. Input se precisa do dígito exato.
+
+<DoDont
+  do="Mostrar o valor ao lado (8h). aria-label no que muda."
+  dont="Slider para liga/desliga, ou faixa sem min/max visíveis."
+/>
+
+<SliderDemo />
+
+<Snippet>{`import { Slider } from "@sable/ui"
+
+<Slider defaultValue={[8]} min={6} max={20} step={1} aria-label="Horário do digest" />`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Arrow", action: "Passo" },
+    { key: "Home / End", action: "Mínimo ou máximo" },
+  ]}
+/>

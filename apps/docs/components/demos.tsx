@@ -81,6 +81,7 @@ import {
   BreadcrumbSeparator,
   Skeleton,
   Progress,
+  Slider,
   Pagination,
   EmptyState,
   ErrorState,
@@ -527,6 +528,25 @@ export function ProgressDemo() {
   return (
     <Example>
       <Progress value={40} aria-label="Exportar CSV" className="max-w-sm" />
+    </Example>
+  );
+}
+
+export function SliderDemo() {
+  const [hour, setHour] = useState(8);
+  return (
+    <Example>
+      <div className="flex w-full max-w-sm flex-col gap-2">
+        <p className="text-sm text-muted">Digest às {hour}h</p>
+        <Slider
+          min={6}
+          max={20}
+          step={1}
+          value={[hour]}
+          onValueChange={(v) => setHour(v[0] ?? 8)}
+          aria-label="Horário do digest"
+        />
+      </div>
     </Example>
   );
 }

@@ -10,8 +10,8 @@ export default function Page() {
       <Prose>
         <h1>Settings</h1>
         <p>
-          Perfil, equipe e billing da mesma organização. As abas trocam o
-          mundo. Dentro de Geral, accordion agrupa o que é raro de mexer.
+          Perfil, equipe e billing da mesma organização. Em Notificações, o
+          digest tem hora na pista — não num select de 15 opções.
         </p>
       </Prose>
       <div className="mt-8">
