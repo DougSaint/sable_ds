@@ -76,6 +76,7 @@ import {
   SheetTrigger,
   SelectionBar,
   Avatar,
+  Kbd,
 } from "@sable/ui";
 import { Example } from "@/components/example";
 
@@ -258,7 +259,10 @@ export function DropdownDemo() {
           <Button variant="secondary">Ações</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Editar</DropdownMenuItem>
+          <DropdownMenuItem>
+            Editar
+            <Kbd className="ml-auto">⌘E</Kbd>
+          </DropdownMenuItem>
           <DropdownMenuItem>Duplicar</DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Excluir</DropdownMenuItem>
@@ -275,7 +279,9 @@ export function TooltipDemo() {
         <TooltipTrigger asChild>
           <Button variant="outline">Hover ou foco</Button>
         </TooltipTrigger>
-        <TooltipContent>Atalho: ⌘S</TooltipContent>
+        <TooltipContent>
+          Salvar <Kbd>⌘S</Kbd>
+        </TooltipContent>
       </Tooltip>
     </Example>
   );
@@ -496,6 +502,16 @@ export function AvatarDemo() {
       <Avatar fallback="NL" aria-label="Norte Log" size="sm" />
       <Avatar fallback="AC" aria-label="Ana Costa" />
       <Avatar fallback="DS" aria-label="Doug Saint" size="lg" />
+    </Example>
+  );
+}
+
+export function KbdDemo() {
+  return (
+    <Example>
+      <Kbd>⌘K</Kbd>
+      <Kbd>⌘S</Kbd>
+      <Kbd>Esc</Kbd>
     </Example>
   );
 }

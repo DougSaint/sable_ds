@@ -38,6 +38,7 @@ export const nav: NavGroup[] = [
       { href: "/components/switch/", label: "Switch" },
       { href: "/components/dropdown-menu/", label: "DropdownMenu" },
       { href: "/components/tooltip/", label: "Tooltip" },
+      { href: "/components/kbd/", label: "Kbd" },
       { href: "/components/field/", label: "Field" },
       { href: "/components/checkbox/", label: "Checkbox" },
       { href: "/components/radio-group/", label: "RadioGroup" },

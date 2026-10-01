@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   Input,
+  Kbd,
   Wordmark,
 } from "@sable/ui";
 import { PedidosBoard } from "./pedidos-board";
@@ -27,7 +28,16 @@ export function AppShellPattern() {
       <div className="flex h-[var(--control-h)] items-center justify-between border-b border-border px-4">
         <Wordmark />
         <div className="flex items-center gap-[var(--control-gap)]">
-          <Input placeholder="Buscar…" className="hidden w-44 sm:block md:w-56" />
+          <div className="relative hidden sm:block">
+            <Input
+              placeholder="Buscar…"
+              className="w-44 pr-12 md:w-56"
+              aria-label="Buscar"
+            />
+            <Kbd className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2">
+              ⌘K
+            </Kbd>
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Conta">

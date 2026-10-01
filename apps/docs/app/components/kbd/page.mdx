@@ -1,0 +1,22 @@
+import { KbdDemo } from "@/components/demos";
+import { DoDont, Snippet } from "@/components/docs-blocks";
+
+# Kbd
+
+Atalho de teclado. Dica, não a ação.
+
+## Quando usar
+
+Tooltip, dropdown, busca do App Shell. O controle continua clicável.
+
+<DoDont
+  do="Uma combinação curta: ⌘K, Esc. Mono, borda, muted."
+  dont="Atalho como único jeito de chegar na ação, ou ⌘ no meio de um parágrafo."
+/>
+
+<KbdDemo />
+
+<Snippet>{`import { Kbd } from "@sable/ui"
+
+<Kbd>⌘K</Kbd>
+<Kbd>Esc</Kbd>`}</Snippet>
