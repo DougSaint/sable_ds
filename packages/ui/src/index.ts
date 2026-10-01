@@ -80,7 +80,7 @@ export {
   DropdownMenuSubContent,
   DropdownMenuRadioGroup,
 } from "./components/dropdown-menu";
-export { Popover, PopoverTrigger, PopoverContent } from "./components/popover";
+export { Popover, PopoverTrigger, PopoverContent, PopoverClose } from "./components/popover";
 export { Toaster, toast } from "./components/toast";
 export { Calendar } from "./components/calendar";
 export { DatePicker, type DatePickerProps } from "./components/date-picker";

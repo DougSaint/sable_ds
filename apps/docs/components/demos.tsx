@@ -58,6 +58,10 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger,
   toast,
   Alert,
   AlertTitle,
@@ -324,6 +328,25 @@ export function TooltipDemo() {
           Salvar <Kbd>⌘S</Kbd>
         </TooltipContent>
       </Tooltip>
+    </Example>
+  );
+}
+
+export function PopoverDemo() {
+  return (
+    <Example>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="secondary">Demo</Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-48 p-2">
+          <PopoverClose asChild>
+            <Button variant="ghost" size="sm" className="w-full justify-start">
+              Simular carga
+            </Button>
+          </PopoverClose>
+        </PopoverContent>
+      </Popover>
     </Example>
   );
 }

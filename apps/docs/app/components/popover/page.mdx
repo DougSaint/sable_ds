@@ -1,0 +1,39 @@
+import { PopoverDemo } from "@/components/demos";
+import { DoDont, Keyboard, Snippet } from "@/components/docs-blocks";
+
+# Popover
+
+Extras ao lado do gatilho. Não cobre a página.
+
+## Quando usar
+
+Filtros secundários, ações de demo, um bloco curto. Menu de ações vai no DropdownMenu. Modal vai no Dialog.
+
+<DoDont
+  do="Um gatilho. Conteúdo que cabe no cartão. Esc fecha."
+  dont="Formulário longo, ou Popover em cima de Popover."
+/>
+
+<PopoverDemo />
+
+<Snippet>{`import { Popover, PopoverTrigger, PopoverContent, PopoverClose, Button } from "@sable/ui"
+
+<Popover>
+  <PopoverTrigger asChild>
+    <Button>Demo</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverClose asChild>
+      <Button>Simular carga</Button>
+    </PopoverClose>
+  </PopoverContent>
+</Popover>`}</Snippet>
+
+## Teclado
+
+<Keyboard
+  rows={[
+    { key: "Esc", action: "Fecha e devolve o foco" },
+    { key: "Tab", action: "Move para o conteúdo" },
+  ]}
+/>

@@ -23,6 +23,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   Input,
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger,
   Pagination,
   Progress,
   Select,
@@ -246,17 +250,35 @@ export function PedidosBoard() {
         <Button variant="secondary" onClick={resetFilters}>
           Limpar
         </Button>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="ml-auto"
-          onClick={simulateLoad}
-        >
-          Simular carga
-        </Button>
-        <Button variant="ghost" size="sm" onClick={() => setFailed(true)}>
-          Simular erro
-        </Button>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="ghost" size="sm" className="ml-auto">
+              Demo
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-48 p-2">
+            <PopoverClose asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={simulateLoad}
+              >
+                Simular carga
+              </Button>
+            </PopoverClose>
+            <PopoverClose asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => setFailed(true)}
+              >
+                Simular erro
+              </Button>
+            </PopoverClose>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <SelectionBar count={selected.length} label={selectionLabel}>
